@@ -1,5 +1,6 @@
+import java.io.Serializable;
 
-public interface Conta {
+public interface Conta extends Serializable {
 	
 	public void extrato();
 	public void saque (double valor);
@@ -10,5 +11,4 @@ public interface Conta {
 	
 	public double acrescentaEmprestimo(double valor);
 	
-	public void consultaDivida ();
 }

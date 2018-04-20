@@ -30,26 +30,25 @@ public class ContaFisica implements Conta{
 		}
 		}
 	
-	public double simulaEmprestimo(double cf, int n) {
-		System.out.println("Simula Emprestimo: ");
-		System.out.println("Credito solicitado: "+cf+" Dividido em: "+n+" Meses "+"Juros de 3% ao mês");
-		System.out.println(n+" parcelas com valor de: "+ I/(1-1/Math.pow(1+I, n))*cf);
-		System.out.println("Sua divida é: "+I/(1-1/Math.pow(1+I, n))*cf *(n));
-		return I/(1-1/Math.pow(1+I, n))*cf;
+	public double simulaEmprestimo(double cf, int n) throws simulaEmprestimoException {
 		
-		
+		if(cf <= 0 || n <=0 ) {
+			throw new simulaEmprestimoException();
+		}
+		else {
+			return I/(1-1/Math.pow(1+I, n))*cf;
+		}
+				
 	}
 	
 	public double acrescentaEmprestimo(double valor) {
 		System.out.println("Valor adicionado a conta: "+ valor);
 		return saldo += valor;
 	}
+}
 
-	@Override
-	public void consultaDivida() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	}
+//System.out.println("Simula Emprestimo: ");
+//System.out.println("Credito solicitado: "+cf+" Dividido em "+n+" Meses. Juros de 3% ao mês");
+//System.out.println(n+" parcelas com valor de: "+ I/(1-1/Math.pow(1+I, n))*cf);
+//System.out.println("Sua divida é: "+I/(1-1/Math.pow(1+I, n))*cf *(n));
 
